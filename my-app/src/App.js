@@ -13,13 +13,18 @@ function App() {
 
 const [state,action] = useReducer(todoReducer, initialState);
 
+const addTodo = text => {
+  action({ type: "add", payload: text })
+}
+
+
   return (
     <div className="App">
    <h1>Todo Readucer</h1>
 
 
-    <TodoList state = {state}/>
-   <TodoForm/>
+    <TodoList state = {state} addTodo ={addTodo}/>
+    <TodoForm addTodo ={addTodo}/>
     </div>
   );
 }

@@ -3,17 +3,32 @@ import {initialState, todoReducer} from '../reducers/reducer'
 
 
 
-const TodoForm = props => {
-  return (
+const TodoForm = ({addTodo}) => {
+  
+    const [newTodo, setNewTodo] = useState('');
+  
+    const submitTodoText = event => {
+        event.preventDefault();
+        addTodo(newTodo)
+      };
+    
+      const handleChanges = event => {
+        setNewTodo(event.target.value);
+      };
+  
+  
+    return (
 
    
-   <form>
+   <form onSubmit={submitTodoText} >
       <input
         type="text"
         name="todo"
         placeholder="things to do"
+        value={newTodo}
+        onChange={handleChanges}
       />
-      <button>Add </button>
+      <button >Add </button>
       <button >Clear</button>
     </form>
   );

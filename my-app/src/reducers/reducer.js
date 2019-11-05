@@ -16,12 +16,10 @@ export const todoReducer = (state, action) => {
 
     switch (action.type) {
         case "add":
-          return { 
+          return [
             ...state,
-            item: action.payload,
-            completed: false,
-            id: Date.now()
-        };
+            {item: action.payload, completed: false, id: Date.now()}
+    ]
         // case "DECREASE":
         //   return { ...state, count: state.count - 1 };
         // case "SET_NAME":
