@@ -2,15 +2,24 @@ import React from 'react';
 
 import Todo from './Todo';
 import TodoForm from './TodoForm'
+
+
+
 const TodoList = props => {
-    console.log(props)
+    console.log(props,"todolist")
+
+
+
   return (
     <div>
-      {props.state.map(item => (
+      {props.state.map(i => (
         
         <Todo
-          key={item.id}
-          todo={item.item}
+          key={i.id}
+          id = {i.id}
+          todo={i.item}
+          completed = {i.completed}
+          toggle = {props.toggle}
         />
       ))}
     </div>

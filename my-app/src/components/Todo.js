@@ -3,11 +3,14 @@ import React from 'react';
 
 
 
-const Todo = props => {
-    console.log(props.todo)
+const Todo = ({todo, toggle, completed, id}) => {
+    console.log( 'todo')
     return (
-      <div>
-          {props.todo}
+      <div style={completed ? { textDecoration: 'line-through' } : null}
+        onClick={() => toggle(id)} 
+      >
+          {todo}
+        
       </div>
     );
   };

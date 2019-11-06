@@ -29,7 +29,7 @@ const TodoForm = ({addTodo}) => {
         onChange={handleChanges}
       />
       <button >Add </button>
-      <button >Clear</button>
+    
     </form>
   );
 };

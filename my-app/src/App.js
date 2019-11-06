@@ -6,25 +6,31 @@ import {initialState, todoReducer} from './reducers/reducer'
 //components
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
-
+import ClearTodo from './components/ClearTodo'
 
 
 function App() {
 
-const [state,action] = useReducer(todoReducer, initialState);
+const [state,dispatch] = useReducer(todoReducer, initialState);
 
 const addTodo = text => {
-  action({ type: "add", payload: text })
+  dispatch({ type: "add", payload: text })
 }
 
-
+const toggle = id => {
+  dispatch({type: 'toggle' , payload: id});
+}
+const clear = () => {
+  dispatch({type: 'clear'})
+}
   return (
     <div className="App">
-   <h1>Todo Readucer</h1>
+   <h1>Todo Reducer</h1>
 
 
-    <TodoList state = {state} addTodo ={addTodo}/>
+    <TodoList state = {state} toggle= {toggle}/>
     <TodoForm addTodo ={addTodo}/>
+    <ClearTodo clear = {clear}/>
     </div>
   );
 }
